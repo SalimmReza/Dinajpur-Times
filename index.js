@@ -25,9 +25,9 @@ const categoryName = async () => {
         const createDiv = document.createElement('div');
         // createDiv.classList.add("d-flex")
         createDiv.innerHTML = `
-        <div class="card flex-row d-flex">
-                <p class="inline px-3 py-2" onclick ='LoadDetails("${cName.category_id}")'>${category_name}</p>
-              
+        <div class=""  >
+         <p class="inline px-3 py-2" onclick ='LoadDetails("${cName.category_id}")'>${category_name}</p>
+          
             </div >
     `;
         categoryCard.appendChild(createDiv);
@@ -46,7 +46,8 @@ const LoadDetails = (category_id) => {
 }
 
 const displayCatagoryDetais = cId => {
-    console.log(cId);
+    // console.log(cId);
+    toggle(true);
     const detailsCard = document.getElementById('details-card');
     detailsCard.innerHTML = ``;
     cId.forEach(cDetails => {
@@ -79,10 +80,19 @@ const displayCatagoryDetais = cId => {
          `;
 
         detailsCard.appendChild(createDiv);
-    })
+    });
+    toggle(false);
 }
-
-
+// --------------spinner-------------
+const toggle = isLoading => {
+    const spinner = document.getElementById('spinner');
+    if (isLoading) {
+        spinner.classList.remove('d-none');
+    }
+    else {
+        spinner.classList.add('d-none');
+    }
+}
 
 // ----------modal details-------------
 
@@ -122,6 +132,8 @@ const moreDetails = modal => {
     detailsCard.appendChild(createDiv);
 
 }
+
+
 
 
 
