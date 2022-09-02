@@ -23,10 +23,10 @@ const categoryName = async () => {
         // console.log(cName.category_id)
         // console.log(cName.category_name);
         const createDiv = document.createElement('div');
-        // createDiv.classList.add("d-flex")
+        createDiv.classList.add("catagory")
         createDiv.innerHTML = `
         <div class=""  >
-         <p class="inline px-3 py-2" onclick ='LoadDetails("${cName.category_id}")'>${category_name}</p>
+         <p class="inline px-3 py-md-2" onclick ='LoadDetails("${cName.category_id}")'>${category_name}</p>
           
             </div >
     `;
@@ -48,6 +48,7 @@ const LoadDetails = (category_id) => {
 const displayCatagoryDetais = cId => {
     // console.log(cId);
     toggle(true);
+    // console.log(toggle);
     const detailsCard = document.getElementById('details-card');
     detailsCard.innerHTML = ``;
     cId.forEach(cDetails => {
