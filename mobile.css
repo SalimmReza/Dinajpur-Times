@@ -1,8 +1,21 @@
-@media screen and (min-width: 900px) {
+@media screen and (min-width: 701px) {
 
     .lgcatagory {
         width: 75%;
         margin: auto;
+    }
+
+
+    .infos {
+        width: 75%;
+    }
+
+}
+
+@media screen and (max-width: 700px) {
+
+    .infos {
+        width: 100%;
     }
 
 

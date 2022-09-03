@@ -93,22 +93,33 @@ const displayCatagoryDetais = (cId) => {
                 <img src="${image_url}" class="img-fluid rounded-start" alt="...">
             </div>
             <div class="col-md-8">
-                <div class="card-body">
+                <div class="card-body mt-4">
                     <h5 class="card-title">${title}</h5>
                     <p class="card-text">${details.slice(0, 200)}</p>
-                    <div class="d-flex justify-content-between w-50">
-                    <img src="${thumbnail_url}"  class="rounded-circle" style="height:50px; width:50px; border-radius: 50%;" alt="...">
-                        <p>${total_view}</p>
-                        <button onclick='loadMoreDetails("${_id}")' type="button" class="btn btn-primary"
-                        data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            click
-                        </button>
+                    <div class="d-flex justify-content-between" infos>
+                    <div class="d-flex align-items-center">
+                    <img src="${thumbnail_url}"  class="rounded-circle m-2" style="height:50px; width:50px; border-radius: 50%;" alt="...">
+                    <div> 
+                    <h5 class =" m-0 text-start" >${name}</h5>
+                    <h5 class ="text-start m-0" style ="font-size: 12px;" >${published_date ? published_date.slice(0, 10) : "no date"}</h5>
+                    </div>
+                    </div>
+                   
+                    <div class="d-flex align-items-center">
+                    <i class="fa-solid fa-eye m-2"></i>
+                    <p class ="text-center" style="margin-top: 15px;">${total_view}</p>
+                </div>
+                <div class="mt-4 mx-3">
+                <i onclick='loadMoreDetails("${_id}")' class="fa-solid fa-arrow-right class="btn btn-primary"
+                data-bs-toggle="modal" data-bs-target="#staticBackdrop"></i>
+                </div> 
                     </div>
                 </div>
             </div>
         </div>
     </div>
          `;
+
         detailsCard.appendChild(createDiv);
 
 
@@ -172,6 +183,4 @@ const moreDetails = modal => {
 
 // loadNews();
 categoryName();
-LoadDetails('08');
-
-
+LoadDetails('03');
