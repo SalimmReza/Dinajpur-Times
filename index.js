@@ -46,7 +46,7 @@ const LoadDetails = (category_id) => {
         .catch(error => console.log(error))
 }
 
-const displayCatagoryDetais = (cId, category_name) => {
+const displayCatagoryDetais = (cId) => {
 
     // const actName = categoryName(category_name);
     toggle(true);
@@ -70,10 +70,21 @@ const displayCatagoryDetais = (cId, category_name) => {
     // console.log(toggle);
     const detailsCard = document.getElementById('details-card');
     detailsCard.innerHTML = ``;
+
+    // --------------------------sort--
+    cId.sort((a, b) => b.total_view - a.total_view);
+
+    cId.forEach((cDetails) => {
+        console.log(`${cDetails.total_view}`);
+    });
+    // -------------------------sort--end
     cId.forEach(cDetails => {
         const { author, image_url, title, details, thumbnail_url, total_view, _id } = cDetails;
-        // console.log(_id);
         const { img, name, published_date } = author;
+        // console.log(_id);
+
+
+
         const createDiv = document.createElement('div');
         createDiv.innerHTML = `
         <div class="card mb-3"">
@@ -98,9 +109,12 @@ const displayCatagoryDetais = (cId, category_name) => {
         </div>
     </div>
          `;
-
         detailsCard.appendChild(createDiv);
+
+
     });
+
+
     toggle(false);
 }
 // --------------spinner-------------
@@ -156,10 +170,8 @@ const moreDetails = modal => {
 
 
 
-
-
-
-// displayCatagoryDetais();
-loadNews();
+// loadNews();
 categoryName();
+LoadDetails('08');
+
 
