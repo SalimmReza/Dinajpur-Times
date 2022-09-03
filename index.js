@@ -96,7 +96,7 @@ const displayCatagoryDetais = (cId) => {
                 <div class="card-body mt-4">
                     <h5 class="card-title">${title}</h5>
                     <p class="card-text">${details.slice(0, 200)}</p>
-                    <div class="d-flex justify-content-between" infos>
+                    <div class="d-flex justify-content-between infos" >
                     <div class="d-flex align-items-center">
                     <img src="${thumbnail_url}"  class="rounded-circle m-2" style="height:50px; width:50px; border-radius: 50%;" alt="...">
                     <div> 
