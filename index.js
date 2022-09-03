@@ -15,7 +15,7 @@ const loadNews = async () => {
 // -----------catagories----------
 const categoryName = async () => {
     const data = await loadNews();
-    console.log(data);
+    // console.log(data);
 
     const categoryCard = document.getElementById('catagories-card');
     data.forEach(cName => {
@@ -38,6 +38,7 @@ const categoryName = async () => {
 // ----------details-----
 
 const LoadDetails = (category_id) => {
+    // const actName = categoryName();
     const url = `https://openapi.programming-hero.com/api/news/category/${category_id}`
     fetch(url)
         .then(res => res.json())
@@ -45,9 +46,27 @@ const LoadDetails = (category_id) => {
         .catch(error => console.log(error))
 }
 
-const displayCatagoryDetais = cId => {
-    // console.log(cId);
+const displayCatagoryDetais = (cId, category_name) => {
+
+    // const actName = categoryName(category_name);
     toggle(true);
+    // console.log(cId);
+    // console.log(actName);
+    // -------------length of array-----------
+    // console.log(cId.length);
+    const countArray = document.getElementById('count-items');
+    countArray.innerHTML = ``;
+    const createDiv = document.createElement('div');
+    createDiv.innerHTML = `
+     <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">${cId.length} items found</h5>
+                </div>
+            </div>
+    `;
+    countArray.appendChild(createDiv);
+    // -------------end length of array-----------
+
     // console.log(toggle);
     const detailsCard = document.getElementById('details-card');
     detailsCard.innerHTML = ``;
@@ -71,7 +90,7 @@ const displayCatagoryDetais = cId => {
                         <p>${total_view}</p>
                         <button onclick='loadMoreDetails("${_id}")' type="button" class="btn btn-primary"
                         data-bs-toggle="modal" data-bs-target="#staticBackdrop">
-                            Launch static backdrop modal
+                            click
                         </button>
                     </div>
                 </div>
